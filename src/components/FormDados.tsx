@@ -1,6 +1,6 @@
-import styles from './Form.module.scss'
+import styles from './FormDados.module.scss'
 
-function Form() {
+function FormDados() {
   return(
     <form className={styles.consultform} > 
     <div className={styles.field}>
@@ -128,4 +128,4 @@ function Form() {
    
 }
 
-export default Form
+export default FormDados

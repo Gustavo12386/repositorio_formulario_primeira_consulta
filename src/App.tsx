@@ -1,7 +1,8 @@
 import './App.scss'
 import Header from './components/Header'
-import Form from './components/Form'
+import FormDados from './components/FormDados'
 import logo from './assets/logo Clinica DM.png'
+import FormPagamento from './components/FormPagamento'
 
 function App() {
  
@@ -11,7 +12,8 @@ function App() {
        <img src={logo} className='logo' alt='logo'/>
     </div>    
      <Header/>
-     <Form/>
+     <FormDados/>
+     <FormPagamento/>
     </>
   )
 }
