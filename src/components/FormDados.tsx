@@ -36,7 +36,7 @@ function FormDados() {
       </div>
 
       <div className={styles.field}>
-        <label>Telefone ou WhatsApp:</label>
+        <label>Telefone (WhatsApp):</label>
         <input
           type="tel"
           id="telefone"

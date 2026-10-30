@@ -25,7 +25,7 @@ function Header() {
 
           <span className={styles['especiality__info']}>
             <span className={styles['especialidade__nome']}>
-              Consulta com Neuropsicólogo
+              Neuropsicologia
             </span>
             <span className={styles['especialidade__valor']}>
               Valor: 141,41 BRL
@@ -45,14 +45,34 @@ function Header() {
 
           <span className={styles['especiality__info']}>
             <span className={styles['especialidade__nome']}>
-              Consulta com Psicólogo Clínico
+              Psicologia
             </span>
             <span className={styles['especialidade__valor']}>
               Valor: 150,65 BRL
             </span>
           </span>
         </label>
-          </fieldset>
+
+        <label className={styles.especiality}>
+          <input
+            type="radio"
+            id="psicologo"
+            name="especialidade"
+            value="psicologo_clinico"
+            data-valor="150.65"
+            required
+          />
+
+          <span className={styles['especiality__info']}>
+            <span className={styles['especialidade__nome']}>
+              Nutrição
+            </span>
+            <span className={styles['especialidade__valor']}>
+              Valor: 150,65 BRL
+            </span>
+          </span>
+        </label>
+        </fieldset>
         
      </main>
     </>
