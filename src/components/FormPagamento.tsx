@@ -111,6 +111,7 @@ function FormPagamento(){
               id="cvv"
               name="cvv"
               placeholder="3 ou 4 dígitos" 
+              width="10%"
               className={styles.cvv}
             />
           </div>
