@@ -321,8 +321,7 @@ const handleSubmit = async (e) => {
             id="historico_nao"
             name="historico_psicologico"
             value="nao"
-            required
-            checked
+            required            
           />
           Não
         </label>
