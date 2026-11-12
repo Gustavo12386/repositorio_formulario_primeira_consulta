@@ -1,5 +1,5 @@
 import styles from './FormDados.module.scss'
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import especialidades from "../services/especialidades.json";
 
 const API_URL = "http://localhost:8080";
@@ -10,12 +10,20 @@ function FormDados() {
   const [especialityName, setEspecialityName] = useState("");
   const [dates, setDates] = useState([]);
   const [hours, setHours] = useState([]);
-
+  const [dateBirth, setDateBirth] = useState("");
+  const [ageError, setAgeError] = useState("");
   const [dateSelected, setDateSelected] = useState("");
   const [hourSelected, setHourSelected] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const [text, setText] = useState('');
+  const limit = 15;
+
+   const TelMask = (e: ChangeEvent<HTMLInputElement>) => {
+      setText(e.target.value);     
+  };
 
   const handleEspecialityChange = async (id, name) => {
   setEspecialityId(id);
@@ -42,6 +50,8 @@ function FormDados() {
       setError(error.message);
     }
 };
+
+
 
 const handleDateChange = async (dateId) => {
   setDateSelected(dateId);
@@ -137,6 +147,24 @@ const handleSubmit = async (e) => {
   }
 };
 
+function calculateAge(birthDate: string): number {
+  const today = new Date();
+  const birth = new Date(`${birthDate}T00:00:00`);
+
+  let age = today.getFullYear() - birth.getFullYear();
+
+  const monthDifference = today.getMonth() - birth.getMonth();
+
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birth.getDate())
+  ) {
+    age--;
+  }
+
+  return age;
+}
+
   return(
     <>
     <main className={styles.consult}>
@@ -231,7 +259,32 @@ const handleSubmit = async (e) => {
           id="nascimento"
           name="data_nascimento"
           required
+           onChange={(event) => {
+          const value = event.target.value;
+
+          setDateBirth(value);
+
+          if (!value) {
+            setAgeError("");
+            return;
+          }
+
+          const age = calculateAge(value);
+
+          if (age < 16) {
+            setAgeError("O cadastro não é permitido para menores de 16 anos.");
+          } else if (age > 80) {
+            setAgeError("O cadastro não é permitido para pessoas acima de 80 anos.");
+          } else {
+            setAgeError("");
+          }
+        }}
         />
+          {ageError && (
+            <span className={styles.error}>
+              {ageError}
+            </span>
+          )}
       </div>
 
       <div className={styles.field}>
@@ -240,7 +293,9 @@ const handleSubmit = async (e) => {
           type="tel"
           id="telefone"
           name="telefone"
-          placeholder="(00) 00000 - 0000"        
+          placeholder="(00) 00000 - 0000"
+          onChange={TelMask} maxLength={limit}  
+          value={text}         
           required
         />
       </div>
@@ -346,7 +401,7 @@ const handleSubmit = async (e) => {
       )}
 
       <div className={styles['consult-actions']}>
-        <button type="submit" className={styles['btn-next']} disabled={loading}>
+        <button type="submit" className={styles['btn-next']} disabled={!!ageError || !dateBirth || loading}>
            {loading ? "Enviando..." : "Avançar"}
         </button>
       </div>
