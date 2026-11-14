@@ -5,3 +5,92 @@ $color-title: #d77b5e;
 $color-text: #171412;
 $button-color: #401b0e;
 
+.professionalContainer{
+  display: flex;  
+  align-items: center;
+  justify-content: center;  
+}
+
+.professionalHeader{
+  transform: translate(-35vh, -4vh);
+}
+
+.title{
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 12px;
+  margin-top: 60px;
+  text-align: center;
+  color: $color-title;
+  position: relative;
+  bottom: 60px;
+}
+
+.subtitle{
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+  color: $color-title;
+}
+
+.text{
+  font-family: $font-secondary;  
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  bottom: 80px;
+  color: $color-text;
+  gap: 1px;
+}
+
+.professionalCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  position: relative;
+  bottom: 80px;
+  width: 180vh;
+  transform: translate(-60vh, 4vh);
+}
+
+.buttonchoice{
+  background-color: $button-color;
+  color: $color-field;
+  border: none;
+  padding: 10px 20px;
+  font-family: $font-secondary;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  transform: translate(100vh, -20vh);    
+}
+
+.buttonchoice:hover{
+  background-color: darken($button-color, 10%);
+}
+
+.image{
+  width: 18%;
+  height: 10%;
+  border-radius: 2%;
+  object-fit: cover;
+  position: relative;
+  bottom: 60px;
+  transform: translate(80vh, 4vh);
+}
+
+.professionalHours{
+  position: relative;
+  bottom: 20px;
+}
+
+.professionalDates{
+  position: relative;
+  bottom: 35px;
+}
