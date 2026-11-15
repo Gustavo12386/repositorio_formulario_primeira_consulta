@@ -1,13 +1,42 @@
 import styles from './SelectProfessional.module.scss'
 import especialidades from "../services/especialidades.json";
-import { Fragment } from "react";
+import { useNavigate } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-function SelectProfessional() {   
+function SelectProfessional() { 
+
+    const navigate = useNavigate();
+
+    const handleSelectProfessional = (especialidade) => {
+
+    navigate(
+      `/primeira-consulta?especialityId=${especialidade.especializationId}
+      &especializationName=${especialidade.especializationName}`
+    );
+
+  }; 
+
    return (      
       <div>
          <h1 className={styles.title}>Escolha o Profissional e a Especialidade que você deseja realizar o atendimento online</h1>
+         <Swiper
+               modules={[Navigation, Pagination]}
+               spaceBetween={10}
+               slidesPerView={1} 
+               navigation
+               pagination={{ clickable: true }}
+               breakpoints={{                  
+                  320: { slidesPerView: 1, spaceBetween: 10 },
+                  640: { slidesPerView: 1, spaceBetween: 15 },
+                  1024: { slidesPerView: 1, spaceBetween: 20 },
+               }}
+          >
            {especialidades.map((especialidade) => (  
-            <Fragment key={especialidade.especializationId}> 
+            <SwiperSlide key={especialidade.especializationId}> 
                <div className={styles.professionalContainer} key={especialidade.especializationId}>
                   <div className={styles.professionalHeader}>
                      <img className={styles.image} src={especialidade.Image} alt="Imagem" />              
@@ -25,10 +54,16 @@ function SelectProfessional() {
                      </div>             
                   </div>   
                </div>               
-               <button className={styles.buttonchoice}>Escolher Especialista</button>
-            
-           </Fragment> 
+               <button
+                className={styles.buttonchoice}
+                type='button'
+                onClick={() => handleSelectProfessional(especialidade)}
+               >
+                Escolher Especialista
+               </button>            
+           </SwiperSlide> 
           ))}
+        </Swiper>     
     </div>    
    )  
 }    

@@ -1,13 +1,19 @@
 import styles from './FormDados.module.scss'
-import { useState, type ChangeEvent } from "react";
-import especialidades from "../services/especialidades.json";
+import { useState, useEffect, type ChangeEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const API_URL = "http://localhost:8080";
 
 function FormDados() {
+  
+  const [searchParams] = useSearchParams();
 
-  const [especialityId, setEspecialityId] = useState("");
-  const [especialityName, setEspecialityName] = useState("");
+  const especialityId =
+  searchParams.get("especialityId") || "";
+
+  const especializationName =
+  searchParams.get("especializationName") || "";
+
   const [dates, setDates] = useState([]);
   const [hours, setHours] = useState([]);
   const [dateBirth, setDateBirth] = useState("");
@@ -21,22 +27,26 @@ function FormDados() {
   const [text, setText] = useState('');
   const limit = 15;
 
-   const TelMask = (e: ChangeEvent<HTMLInputElement>) => {
+  const TelMask = (e: ChangeEvent<HTMLInputElement>) => {
       setText(e.target.value);     
   };
 
-  const handleEspecialityChange = async (id, name) => {
-  setEspecialityId(id);
-  setEspecialityName(name);
-    setDateSelected("");
-    setHourSelected("");
-    setDates([]);
-    setHours([]);
-    setError("");
+  useEffect(() => {
+
+  if (!especialityId) {
+    setError("Profissional não identificado.");
+    return;
+  }
+
+  const loadDates = async () => {
 
     try {
+
+      setLoading(true);
+      setError("");
+
       const response = await fetch(
-        `${API_URL}/especialities/${id}/dates`
+        `${API_URL}/especialities/${especialityId}/dates`
       );
 
       if (!response.ok) {
@@ -44,16 +54,26 @@ function FormDados() {
       }
 
       const data = await response.json();
+
       setDates(data);
 
     } catch (error) {
+
       setError(error.message);
+
+    } finally {
+
+      setLoading(false);
+
     }
-};
 
+  };
 
+  loadDates();
 
-const handleDateChange = async (dateId) => {
+}, [especialityId]);
+
+  const handleDateChange = async (dateId) => {
   setDateSelected(dateId);
   setHourSelected("");
   setHours([]);
@@ -97,14 +117,12 @@ const handleSubmit = async (e) => {
 
   const payload = {
      especialityId,
-     especialityName,
+     especializationName,
       name: formData.get("nome"),
       phone: formData.get("telefone"),
       email: formData.get("email"),
       date_birth: formData.get("data_nascimento"),
-      date_scheduled: dates.find(
-        (date) => date.dateId === dateSelected
-      )?.currentDate,
+      date_scheduled: selectedDate.currentDate,
       hour: hourSelected,
       question1: formData.get("motivo"),
       question2: formData.get("historico_psicologico"),
@@ -147,6 +165,8 @@ const handleSubmit = async (e) => {
   }
 };
 
+
+
 function calculateAge(birthDate: string): number {
   const today = new Date();
   const birth = new Date(`${birthDate}T00:00:00`);
@@ -169,55 +189,10 @@ function calculateAge(birthDate: string): number {
     <>
     <main className={styles.consult}>
        <header className={styles.consultheader}>
-        <h1>Realize sua Primeira Consulta</h1>
-        <h2>Escolha sua especialidade</h2>
-       </header>
-    
-          <fieldset className={styles.especialities}>
-             <legend className={styles['sr-only']}>
-              Selecione a especialidade
-             </legend>
+        <h1>Realize sua Primeira Consulta</h1>        
+       </header>        
+    </main>
 
-          {especialidades.map((especialidade) => (   
-           <label
-            className={styles.especiality}
-            key={especialidade.especializationId}
-          >
-
-            <input
-              type="radio"
-              name="especialidade"
-              value={especialidade.especializationId}
-              checked={
-                especialityId === especialidade.especializationId
-              }
-              onChange={() =>
-                handleEspecialityChange(
-                  especialidade.especializationId,
-                  especialidade.especializationName
-                )
-              }
-              required
-            />
-
-            <span className={styles["especiality__info"]}>
-
-              <span className={styles["especialidade__nome"]}>
-                {especialidade.especializationName}
-              </span>
-              <span className={styles['especialidade__valor']}>
-                {especialidade.especializationValue.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })}
-              </span>
-            </span>
-
-          </label>
-         ))}
-        </fieldset>
-        
-     </main>
     <form className={styles.consultform} onSubmit={handleSubmit}>   
         <input
       type="hidden"
@@ -228,7 +203,7 @@ function calculateAge(birthDate: string): number {
     <input
       type="hidden"
       name="especiality_name"
-      value={especialityName}
+      value={especializationName}
     /> 
     <div className={styles.field}>
         <label>Nome Completo:</label>
@@ -310,15 +285,17 @@ function calculateAge(birthDate: string): number {
             required
             disabled={!especialityId || dates.length === 0}
           >
-          <option value="" selected disabled>
-            Selecione uma data disponível:
-          </option>
-             {dates.map((date) => (
-            <option key={date.dateId} value={date.dateId}>
-              {date.currentDate}
+            <option value="" disabled>
+              Selecione uma data disponível:
             </option>
-          ))}
-        </select>
+
+            {dates.map((date) => (
+              <option key={date.dateId} value={date.dateId}>
+                {date.currentDate}
+              </option>
+            ))}
+
+          </select>
       </div>
 
       <div className={styles.field}>

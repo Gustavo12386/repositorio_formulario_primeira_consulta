@@ -14,14 +14,6 @@ $font-secondary: 'Quicksand', sans-serif;
   &__header {
     margin-bottom: 44px;
     text-align: center;
-
-    h1 {
-      color: $color-title;
-      font-family: $main-font;
-      font-size: clamp(27px, 5vw, 38px);
-      font-weight: 400;
-      line-height: 1.4;
-    }
   }
 
   &__form {
@@ -35,6 +27,15 @@ $font-secondary: 'Quicksand', sans-serif;
     gap: 10px;
     margin-top: 14px;
   }
+}
+
+.titlepage {
+  color: $color-title;
+  font-family: $main-font;
+  font-size: clamp(27px, 5vw, 38px);
+  font-weight: 400;
+  line-height: 1.4;
+  transform: translateX(-80vh);
 }
 
 .paymentheader{

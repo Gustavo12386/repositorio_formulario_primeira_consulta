@@ -15,7 +15,7 @@ function App() {
      <Router>
       <Routes>
         <Route path='/' element={<SelectProfessional/>}/>
-        <Route path='/formdados' element={<><FormDados/><FormPagamento/></> }/>
+        <Route path='/primeira-consulta' element={<><FormDados/><FormPagamento/></> }/>
       </Routes>
      </Router>    
     </>

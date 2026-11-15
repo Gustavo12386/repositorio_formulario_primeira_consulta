@@ -5,7 +5,7 @@ function FormPagamento(){
     <section className={styles.payment}>
 
      <header className={styles.paymentheader}>
-       <h1>Realize seu Pagamento</h1>
+       <h1 className={styles.titlepage}>Realize seu Pagamento</h1>
      </header>
 
      <form className={styles.paymentform} action="#" method="POST">
