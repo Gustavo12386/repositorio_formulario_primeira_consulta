@@ -1,6 +1,7 @@
 import styles from './FormDados.module.scss'
 import { useState, useEffect, type ChangeEvent } from "react";
 import { useSearchParams } from "react-router-dom";
+import FormPagamento from './FormPagamento';
 
 const API_URL = "http://localhost:8080";
 
@@ -26,6 +27,12 @@ function FormDados() {
 
   const [text, setText] = useState('');
   const limit = 15;
+
+  
+  const [informationId, setInformationId] =
+  useState<string | null>(null);
+  const[formpayment, setFormpayment] = useState(false);
+
 
   const TelMask = (e: ChangeEvent<HTMLInputElement>) => {
       setText(e.target.value);     
@@ -131,6 +138,7 @@ const handleSubmit = async (e) => {
 
   try {
     setLoading(true);
+    
 
     const response = await fetch(
       `${API_URL}/patient/first-consultation`,
@@ -145,6 +153,14 @@ const handleSubmit = async (e) => {
     );
 
     const result = await response.json();
+
+    if (!result.id) {
+      throw new Error(
+        "O cadastro não retornou o identificador do paciente."
+      );
+    }
+
+    setInformationId(result.id);
 
     if (!response.ok) {
       throw new Error(
@@ -194,7 +210,7 @@ function calculateAge(birthDate: string): number {
     </main>
 
     <form className={styles.consultform} onSubmit={handleSubmit}>   
-        <input
+    <input
       type="hidden"
       name="especialityId"
       value={especialityId}
@@ -378,12 +394,19 @@ function calculateAge(birthDate: string): number {
       )}
 
       <div className={styles['consult-actions']}>
-        <button type="submit" className={styles['btn-next']} disabled={!!ageError || !dateBirth || loading}>
-           {loading ? "Enviando..." : "Avançar"}
+        <button type="submit" className={styles['btn-next']}
+        disabled={!!ageError || !dateBirth || loading} onClick={() => setFormpayment(!formpayment)}>
+          Avançar
         </button>
       </div>
 
     </form>
+      {formpayment && informationId && (
+      <FormPagamento
+        informationId={informationId}
+      />
+    )}
+      
     </>
   );  
    

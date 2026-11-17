@@ -1,7 +1,6 @@
 import './App.scss'
 import FormDados from './components/FormDados'
 import logo from './assets/logo Clinica DM.png'
-import FormPagamento from './components/FormPagamento'
 import SelectProfessional from './components/SelectProfessional'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -15,7 +14,7 @@ function App() {
      <Router>
       <Routes>
         <Route path='/' element={<SelectProfessional/>}/>
-        <Route path='/primeira-consulta' element={<><FormDados/><FormPagamento/></> }/>
+        <Route path='/primeira-consulta' element={<FormDados/>}/>
       </Routes>
      </Router>    
     </>

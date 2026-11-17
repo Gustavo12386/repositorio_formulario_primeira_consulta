@@ -12,7 +12,7 @@ $button-color: #401b0e;
 }
 
 .professionalHeader{
-  transform: translate(-35vh, -4vh);
+  transform: translate(-35vh, -4vh);  
 }
 
 .title{
@@ -33,7 +33,7 @@ $button-color: #401b0e;
   font-size: 30px;
   text-align: center;
   position: relative;
-  bottom: 50px;
+  bottom: 20px;
   color: $color-title;
 }
 
@@ -47,6 +47,15 @@ $button-color: #401b0e;
   gap: 1px;
 }
 
+@keyframes flutuar {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
 .professionalCard{
   display: flex;
   flex-direction: column;
@@ -56,6 +65,8 @@ $button-color: #401b0e;
   bottom: 80px;
   width: 180vh;
   transform: translate(-60vh, 4vh);
+  animation: flutuar 3s ease-in-out infinite;
+  transition: scale 0.3s ease;
 }
 
 .buttonchoice{
@@ -69,6 +80,8 @@ $button-color: #401b0e;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   transform: translate(100vh, -20vh);    
+  animation: flutuar 3s ease-in-out infinite;
+  transition: scale 0.3s ease;
 }
 
 .buttonchoice:hover{
@@ -78,19 +91,34 @@ $button-color: #401b0e;
 .image{
   width: 14%;
   height: 10%;
-  border-radius: 2%;
-  object-fit: cover;
+  border-radius: 2%;  
   position: relative;
   bottom: 60px;
   transform: translate(80vh, 4vh);
+  animation: flutuar 3s ease-in-out infinite;
+  transition: scale 0.3s ease;   
+}
+
+.image:hover {
+  scale: 1.05;
+}
+
+.professionalInfo{
+  position: relative;
+  top: 25px;
+}
+
+.price{
+  position: relative;
+  top: 8px;
 }
 
 .professionalHours{
   position: relative;
-  bottom: 20px;
+  bottom: 10px;
 }
 
 .professionalDates{
   position: relative;
-  bottom: 35px;
+  bottom: 25px;
 }

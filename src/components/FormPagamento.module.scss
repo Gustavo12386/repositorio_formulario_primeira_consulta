@@ -92,6 +92,7 @@ $font-secondary: 'Quicksand', sans-serif;
   margin: 0 0 20px;
   padding: 0 8px;
   font-family: $font-secondary;
+  padding-bottom: 1vh;
 
   legend {
     margin-bottom: 10px;
@@ -102,7 +103,7 @@ $font-secondary: 'Quicksand', sans-serif;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
   
 }
   
@@ -208,9 +209,17 @@ $font-secondary: 'Quicksand', sans-serif;
   }
 }
 
+.actionspayment{
+  padding-bottom: 10vh;
+}
 
-
-
+.textinformation{
+  position: relative;
+  top: 6vh;
+  right: 266px;
+  padding-bottom: 1vh;
+  
+}
 
 
 

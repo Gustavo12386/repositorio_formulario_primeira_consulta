@@ -44,7 +44,10 @@ function SelectProfessional() {
                   <div className={styles.professionalCard}>
                      <h2 className={styles.subtitle}>{especialidade.professionalName}</h2>   
                      <div className={styles.professionalInfo}>
-                        <p className={styles.text}>{especialidade.especializationName}</p>
+                        <p className={styles.text}>Especialidade: {especialidade.especializationName}</p>
+                     </div> 
+                     <div className={styles.price}>
+                        <p className={styles.text}>Valor da Consulta: R${especialidade.especializationValue}</p>
                      </div> 
                      <div className={styles.professionalHours}>
                         <p className={styles.text}>Horários Disponíveis: 08:00 - 12:00, 13:00 - 17:00</p>
