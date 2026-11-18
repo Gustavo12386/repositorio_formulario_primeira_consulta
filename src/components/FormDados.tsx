@@ -31,6 +31,7 @@ function FormDados() {
   
   const [informationId, setInformationId] =
   useState<string | null>(null);
+  const [patientName, setPatientName] = useState("");
   const[formpayment, setFormpayment] = useState(false);
 
 
@@ -161,6 +162,8 @@ const handleSubmit = async (e) => {
     }
 
     setInformationId(result.id);
+    setPatientName(result.name);
+    setFormpayment(true);
 
     if (!response.ok) {
       throw new Error(
@@ -403,7 +406,7 @@ function calculateAge(birthDate: string): number {
     </form>
       {formpayment && informationId && (
       <FormPagamento
-        informationId={informationId}
+        informationId={informationId}       
       />
     )}
       

@@ -79,7 +79,8 @@ $button-color: #401b0e;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  transform: translate(100vh, -20vh);    
+  position: relative;  
+  bottom: 100px;
   animation: flutuar 3s ease-in-out infinite;
   transition: scale 0.3s ease;
 }
@@ -122,3 +123,4 @@ $button-color: #401b0e;
   position: relative;
   bottom: 25px;
 }
+

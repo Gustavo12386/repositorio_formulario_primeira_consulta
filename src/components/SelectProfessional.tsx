@@ -54,16 +54,20 @@ function SelectProfessional() {
                      </div>             
                      <div className={styles.professionalDates}>     
                      <p className={styles.text}>Datas Disponíveis: 01/01/2023, 02/01/2023, 03/01/2023</p>          
-                     </div>             
+                     </div>    
+                     <div className={styles.divbutton}>
+                        <button
+                        className={styles.buttonchoice}
+                        type='button'
+                        onClick={() => handleSelectProfessional(especialidade)}
+                        >
+                        Escolher Especialista
+                       </button>        
+                     </div>            
                   </div>   
-               </div>               
-               <button
-                className={styles.buttonchoice}
-                type='button'
-                onClick={() => handleSelectProfessional(especialidade)}
-               >
-                Escolher Especialista
-               </button>            
+               </div>        
+                   
+                   
            </SwiperSlide> 
           ))}
         </Swiper>     
