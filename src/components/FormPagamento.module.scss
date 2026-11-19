@@ -57,9 +57,9 @@ $font-secondary: 'Quicksand', sans-serif;
 
   input,
   select {
-    width: 50%;
+    width: 60%;
     min-width: 0;
-    height: 27px;
+    height: 35px;
     padding: 5px 10px;
     border: 1px solid transparent;
     border-radius: 6px;
@@ -237,7 +237,7 @@ $font-secondary: 'Quicksand', sans-serif;
   margin: 20px 0;
   border: 1px solid #ddd;
   border-radius: 8px;  
-  width: 48%;
+  width: 60%;
   
 
   p {
@@ -294,3 +294,46 @@ h3 {
 .labelname{
   font-family: $font-secondary;
 }
+
+@media screen and (min-width: 744px) and (max-width: 1440px) {   
+  .paymentform{
+    transform: translateX(-40vh);
+  }
+  .btn-coupon{
+    width: 20%;     
+  }
+  .textinformation{
+    position: relative;
+    right: 5vh;
+  }
+}  
+
+@media screen and (max-width: 730px) {
+   .paymentform{
+    transform: translateX(-42vh);
+  }
+  .btn-coupon{
+    width: 40%;     
+  }
+  .textinformation{
+    position: relative;
+    font-size: 12px;
+    right: 3vh;
+    width: 80%;
+  }
+  .btn-dificulty{
+    margin-top: 10px;
+    position: relative;
+    right: 10vh;
+    font-size: 12px;
+  }
+  .btn-payment{
+    position: relative;
+    left: 5vh;
+    font-size: 12px;
+  }
+   .paymentform input{
+    width: 66%;    
+  }
+  
+}  

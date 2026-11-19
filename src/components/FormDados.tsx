@@ -346,9 +346,9 @@ function calculateAge(birthDate: string): number {
       </div>
       
       <fieldset className={styles.history}>
-        <legend>
+        <label className={styles.question}>
           Já realizou acompanhamento psicológico anteriormente?
-        </legend>
+        </label>
 
         <label>
           <input
@@ -399,11 +399,11 @@ function calculateAge(birthDate: string): number {
       </div>
 
     </form>
-      {formpayment && informationId && (
+      
       <FormPagamento
         informationId={informationId}       
       />
-    )}
+    
       
     </>
   );  

@@ -255,7 +255,7 @@ function FormPagamento({
               type="text"
               id="cupom"
               name="cupom"
-              placeholder="Tem um cupom de desconto? Digite aqui"
+              placeholder="Tem um cupom de desconto?"
               value={couponCode}
               className={styles.inputcoupon}
               onChange={(e) => {

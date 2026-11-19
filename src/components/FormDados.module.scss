@@ -117,7 +117,7 @@ h2{
 .consultform{  
   align-items: center;
   justify-content: center;   
-  transform: translateX(50vh);
+  transform: translateX(55vh);
 }
 
 button,
@@ -151,7 +151,7 @@ textarea {
   input,
   select,
   textarea {
-    width: 50%;
+    width: 50%;   
     min-height: 17px;
     padding: 7px 11px;
     border: 1px solid transparent;
@@ -184,8 +184,7 @@ textarea {
   }
 
    select {
-    cursor: pointer;
-     width: 51.4%;
+    cursor: pointer;    
   }
   
 }  
@@ -259,3 +258,31 @@ textarea {
   font-size: 12px;
   margin-top: 5px;
 }
+
+@media screen and (min-width: 744px) and (max-width: 1440px) {
+    .consultform{       
+      transform: translateX(7vh);
+    }
+}  
+
+@media screen and (max-width: 730px) {
+    .consultform{       
+      transform: translateX(3vh);
+    }    
+   
+    .consultform input{
+      width: 78%;  
+    }
+    .consultform select{
+      width: 78%;    
+    }
+    .consultform textarea{
+      width: 78%;    
+    }
+
+    .question{
+      font-weight: 600;
+    }
+   
+} 
+
