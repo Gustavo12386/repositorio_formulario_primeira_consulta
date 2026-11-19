@@ -40,5 +40,12 @@
     "Image": "../../public/assets/PSI_Gabriella Pereira Martins.jpg",
     "especializationName": "Psicologia",
     "especializationValue": 141.41
+  },
+  {
+    "especializationId": "575536f0-014b-4080-a1ca-499e823b0ea2",
+    "professionalName": "Osvaldo de Oliveira",
+    "Image": "../../public/assets/OsvaldodeOliveira.jpg",
+    "especializationName": "Psicanalise",
+    "especializationValue": 141.41
   }
 ]

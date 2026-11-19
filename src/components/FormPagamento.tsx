@@ -1,8 +1,5 @@
 import styles from './FormPagamento.module.scss';
-import NavigationMenu from './subcomponents/FormadePagamento'
 import { useState, useEffect} from "react";
-import CartaodeCredito from './subcomponents/CartaodeCredito';
-import PIX from './subcomponents/PIX';
 
 const API_URL = "http://localhost:8080";
 
@@ -20,8 +17,7 @@ interface CouponResponse {
 function FormPagamento({
   informationId,  
 }: FormPagamentoProps){
-  
-  const [pageselected, handleChange] = useState(0);
+ 
   const [error, setError] = useState("");
   const [couponCode, setCouponCode] = useState("");
 
@@ -326,17 +322,13 @@ function FormPagamento({
           </p>
 
         </div>    
-      <fieldset className={styles.paymentoptionfield}>
-        <legend>Selecione uma forma de pagamento?</legend>
-         <NavigationMenu updateTopic={handleChange}/> 
-          {(() => {
-              if(pageselected == 0){
-                return <CartaodeCredito/>; 
-              }
-              else if(pageselected == 1){
-              return <PIX/>;
-            }
-          })()}     
+      <fieldset className={styles.paymentoptionfield}>        
+           <div className={styles['card-information']}>       
+            <p className={styles.textinformation}>
+              Você será direcionado ao ambiente seguro do Mercado Pago
+              para concluir a compra.
+            </p>
+          </div>      
       </fieldset>     
       <br></br>
 

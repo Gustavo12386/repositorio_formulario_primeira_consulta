@@ -30,8 +30,7 @@ function FormDados() {
 
   
   const [informationId, setInformationId] =
-  useState<string | null>(null);
-  const [patientName, setPatientName] = useState("");
+  useState<string | null>(null);  
   const[formpayment, setFormpayment] = useState(false);
 
 
@@ -161,8 +160,7 @@ const handleSubmit = async (e) => {
       );
     }
 
-    setInformationId(result.id);
-    setPatientName(result.name);
+    setInformationId(result.id);    
     setFormpayment(true);
 
     if (!response.ok) {
@@ -170,9 +168,6 @@ const handleSubmit = async (e) => {
         result.message || "Não foi possível realizar o cadastro."
       );
     }
-
-    alert("Primeira consulta cadastrada com sucesso!");
-
     console.log("Cadastro realizado:", result);
 
   } catch (error) {
@@ -399,7 +394,7 @@ function calculateAge(birthDate: string): number {
       <div className={styles['consult-actions']}>
         <button type="submit" className={styles['btn-next']}
         disabled={!!ageError || !dateBirth || loading} onClick={() => setFormpayment(!formpayment)}>
-          Avançar
+           {loading ? "Avançando..." : "Avançar"}
         </button>
       </div>
 

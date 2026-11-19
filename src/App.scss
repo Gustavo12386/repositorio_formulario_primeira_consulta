@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body{
   background-color: #FBF0E5; 
 }
@@ -10,4 +14,11 @@ body{
 .logo{
   width: 25vh;
   height: 23vh;
+}
+
+@media screen and (min-width: 360px) and (max-width: 730px) {
+   .logo{
+    margin-top: 10px;
+    margin-left: 18px;
+  }
 }

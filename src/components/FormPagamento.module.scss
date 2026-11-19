@@ -181,7 +181,8 @@ $font-secondary: 'Quicksand', sans-serif;
   transition:
   background-color 0.2s ease,
   transform 0.2s ease;
-
+  position: relative;
+  bottom: 30px;
    &:focus-visible {
     outline: 2px solid $color-title;
     outline-offset: 3px;
@@ -215,10 +216,8 @@ $font-secondary: 'Quicksand', sans-serif;
 
 .textinformation{
   position: relative;
-  top: 6vh;
-  right: 266px;
-  padding-bottom: 1vh;
-  
+  top: 1vh;  
+  padding-bottom: 1vh;  
 }
 
 .couponcontainer {
