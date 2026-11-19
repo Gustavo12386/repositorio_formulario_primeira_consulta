@@ -17,7 +17,7 @@ $button-color: #401b0e;
 .professionalHeader{
   text-align: center;
   position: relative;
-  left: 300px;
+  left: 50vh;
   margin: 0 0 10px 0; 
 }
 
@@ -123,11 +123,28 @@ $button-color: #401b0e;
 }
 
 @media screen and (min-width: 744px) and (max-width: 1440px) {
-  .title { font-size: 28px; margin-top: 20px;}
-  .professionalCard { max-width: 700px; margin-bottom: 100px;}
-  .image { width: 200px; height: 300px; }
-  .professionalContainer{ display: flex; flex-direction: column; }
-  .professionalHeader{position: relative;  left: 10px;}
+  .title {
+   font-size: 28px;
+   margin-top: 20px;
+  }
+  .professionalCard { 
+    max-width: 700px;
+    position: relative;
+    bottom: 45px;
+  }
+  .image {
+    width: 200px;
+    height: 300px;
+  }
+  .professionalContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .professionalHeader{
+    position: relative;
+    left: 1px;
+    top: 2vh;
+  }
 }  
 
 @media screen and (max-width: 730px) {
