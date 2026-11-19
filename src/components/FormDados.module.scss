@@ -259,9 +259,16 @@ textarea {
   margin-top: 5px;
 }
 
+.question{
+ font-weight: 600;
+}
+
 @media screen and (min-width: 744px) and (max-width: 1440px) {
     .consultform{       
       transform: translateX(7vh);
+    }
+     .question{
+      font-weight: 600;
     }
 }  
 

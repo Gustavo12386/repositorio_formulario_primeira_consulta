@@ -399,11 +399,11 @@ function calculateAge(birthDate: string): number {
       </div>
 
     </form>
-      
+      {formpayment && informationId && (
       <FormPagamento
         informationId={informationId}       
       />
-    
+     )}
       
     </>
   );  
