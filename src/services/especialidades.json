@@ -2,35 +2,35 @@
   {
     "especializationId": "a96e17f6-6109-4287-afab-fc9a25f3e9a1",
     "professionalName": "Tássia Lima",
-    "Image": "../../public/assets/PSI_Tassia Lima de Carvalho.jpg",
+    "Image": "../../public/assets/Ta.jpg",
     "especializationName": "Psicologia",
     "especializationValue": 141.41
   },
   {
     "especializationId": "63e13ebc-2a99-4fdb-8721-4dbf784868da",
     "professionalName": "Rodrigo Mendonça",
-    "Image": "../../public/assets/PSI_Rodrigo Mendonça de Faria.jpeg",
+    "Image": "../../public/assets/Ro.jpg",
     "especializationName": "Psicologia",
     "especializationValue": 141.41
   },
   {
     "especializationId": "0ae25164-7482-43ea-80f6-79ec6939964",
     "professionalName": "Ana Clara",
-    "Image": "../../public/assets/NUTRI_Ana Clara Bruno Martins.jpeg",
+    "Image": "../../public/assets/AnaClara.jpg",
     "especializationName": "Nutrição",
     "especializationValue": 141.41
   },
   {
     "especializationId": "0f40d076-c75d-4b6e-8b71-6f0d42216182",
     "professionalName": "Grazielle Santana",
-    "Image": "../../public/assets/PSI_Grazielli_Santana_Pithon_2816x4252.jpeg",
+    "Image": "../../public/assets/GrazielliSantana.jpg",
     "especializationName": "Psicologia",
     "especializationValue": 141.41
   },
   {
     "especializationId": "50ff2e35-72f3-4f80-8e7a-d93b5158478a",
     "professionalName": "Debora de Almeida",
-    "Image": "../../public/assets/PSI_Debora de Almeida Gonçalves.jpg",
+    "Image": "../../public/assets/Debora de Almeida.jpg",
     "especializationName": "Psicologia",
     "especializationValue": 141.41
   },
@@ -44,7 +44,7 @@
   {
     "especializationId": "575536f0-014b-4080-a1ca-499e823b0ea2",
     "professionalName": "Osvaldo de Oliveira",
-    "Image": "../../public/assets/OsvaldodeOliveira.jpg",
+    "Image": "../../public/assets/Osvaldo_de_Oliveira.png",
     "especializationName": "Psicanalise",
     "especializationValue": 141.41
   }

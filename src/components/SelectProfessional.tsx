@@ -1,11 +1,6 @@
 import styles from './SelectProfessional.module.scss'
 import especialidades from "../services/especialidades.json";
 import { useNavigate } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 function SelectProfessional() { 
 
@@ -20,23 +15,12 @@ function SelectProfessional() {
 
   }; 
 
-   return (      
-      <div>
-         <h1 className={styles.title}>Escolha o Profissional e a Especialidade que você deseja realizar o atendimento online</h1>
-         <Swiper
-               modules={[Navigation, Pagination]}
-               spaceBetween={10}
-               slidesPerView={1} 
-               navigation
-               pagination={{ clickable: true }}
-               breakpoints={{                  
-                  320: { slidesPerView: 1, spaceBetween: 10 },
-                  640: { slidesPerView: 1, spaceBetween: 15 },
-                  1024: { slidesPerView: 1, spaceBetween: 20 },
-               }}
-          >
-           {especialidades.map((especialidade) => (  
-            <SwiperSlide key={especialidade.especializationId}> 
+   return (   
+    <>  
+      <h1 className={styles.title}>Escolha o Profissional e a Especialidade que você deseja realizar o atendimento online</h1>   
+      <section className={styles.cardscolumn}>        
+         {especialidades.map((especialidade) => (  
+            <div key={especialidade.especializationId}> 
                <div className={styles.professionalContainer} key={especialidade.especializationId}>
                   <div className={styles.professionalHeader}>
                      <img className={styles.image} src={especialidade.Image} alt="Imagem" />              
@@ -65,13 +49,11 @@ function SelectProfessional() {
                        </button>        
                      </div>            
                   </div>   
-               </div>        
-                   
-                   
-           </SwiperSlide> 
+               </div>                   
+           </div> 
           ))}
-        </Swiper>     
-    </div>    
+      </section>     
+     </>
    )  
 }    
 

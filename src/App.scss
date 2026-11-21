@@ -12,8 +12,8 @@ body{
 }
 
 .logo{
-  width: 25vh;
-  height: 23vh;
+  width: 20vh;
+  height: 20vh;
 }
 
 @media screen and (min-width: 360px) and (max-width: 730px) {
@@ -22,3 +22,9 @@ body{
     margin-left: 18px;
   }
 }
+
+@media screen and (max-width: 730px) {
+    .logo{      
+      margin-left: 45px;
+    }
+}  
