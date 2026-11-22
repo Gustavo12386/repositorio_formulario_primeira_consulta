@@ -9,6 +9,7 @@ $button-color: #401b0e;
   min-height: 100px; 
   padding: 1px;  
   max-width: 500px;
+  display: flex;  
 }
 
 .cardscolumn{
@@ -16,8 +17,9 @@ $button-color: #401b0e;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 200vh;  
-  margin-top: 50px; 
+  max-width: 210vh;  
+  gap: 8vh;
+  margin-top: 100vh; 
 }
 
 .professionalHeader{
@@ -52,7 +54,7 @@ $button-color: #401b0e;
   margin: -1vh 0 30px 0;
   position: relative;
   bottom: 10px;
-  width: 60vh;
+  width: 100vh;
   color: $color-text;  
 }
 
@@ -72,7 +74,7 @@ $button-color: #401b0e;
   justify-content: center;  
   width: 100%;
   max-width: 600px; 
-  margin: -80px 0 30px 0;
+  margin: 2px 0 30px 0;
   animation: flutuar 3s ease-in-out infinite;
   transition: scale 0.3s ease;
 }
@@ -98,8 +100,8 @@ $button-color: #401b0e;
 }
 
 .image{
-  width: 150px;
-  height: 200px;
+  width: 100px;
+  height: 150px;
   border-radius: 2%;  
   margin-bottom: 80px;
   object-fit: cover;   
@@ -108,7 +110,8 @@ $button-color: #401b0e;
 
 .image:hover {
   scale: 1.1;
-  height: 320px;
+  height: 300px;
+  width: 220px;
 }
 
 .professionalInfo{
@@ -131,6 +134,10 @@ $button-color: #401b0e;
   bottom: 25px;
 }
 
+.cardscolumn{  
+  margin-top: 50px;  
+}
+
 @media screen and (min-width: 744px) and (max-width: 1440px) {
   .title {
    font-size: 28px;
@@ -140,83 +147,75 @@ $button-color: #401b0e;
   .professionalCard { 
     max-width: 700px;
     position: relative;
-    top: 20px;
+    top: 10px;
   }
   .image {
-    width: 200px;
-    height: 300px;
+    width: 100px;
+    height: 150px;
   }
   .professionalContainer{
-    display: flex;
-    flex-direction: column;
-    padding: 1px; 
+    display: flex;    
   }
+
   .professionalHeader{
     position: relative;
     left: 1px;
     top: 2vh;
-  } 
-  .cardscolumn{
-    display: flex;
-    flex-direction: column;    
-    width: 72vh;  
-    margin-top: 50px; 
   }
+ 
 }  
 
 @media screen and (max-width: 730px) {
    .professionalContainer {
-    padding: 30px 15px; 
-    display: flex;
-    flex-direction: column;
-    min-height: auto; 
-  }
-
-  .cardscolumn{
-    display: flex;
-    flex-direction: column;    
-    width: 1px;    
+    padding: 10px 5px;        
+    display: flex;      
+    min-height: auto;
+    gap: 0;   
   }
 
   .professionalHeader {
-    margin-bottom: 15px; 
+    margin-bottom: 8px;       
     position: relative;
-    left: 0px;
+    left: 0;
   }
 
   .title {
     font-size: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 2px; 
   } 
 
   .professionalCard {
-    margin-top: 10px; 
+    margin-top: 0px; 
   }
 
   .image {
-    width: 120px;
-    height: 180px;
-    margin-bottom: 10px;
+    width: 70px;
+    height: 120px;
+    margin-bottom: 5px;
   }
 
   .buttonchoice {
     font-size: 15px;
     width: 100%;
     max-width: 300px;
-    margin-top: 15px;
+    margin-top: 8px;
   }
    .professionalCard { 
     max-width: 700px;
     position: relative;
-    top: 1px;
+    top: 0;
   }
   .text{    
-    width: 40vh;    
+    width: 25vh;
+    font-size: 13px;    
   }
   .cardscolumn{
-    display: flex;
-    flex-direction: column;    
+    display: flex;        
     width: 48vh;  
-    margin-top: 5px; 
+    margin-top: 0;
+        
+  }
+  .subtitle{
+    font-size: 20px;
   }
 }
