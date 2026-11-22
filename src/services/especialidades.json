@@ -42,10 +42,18 @@
     "especializationValue": 141.41
   },
   {
+    "especializationId": "77edb477-2323-4401-8e72-446114963b9c",
+    "professionalName": "Amanda Ferreira",
+    "Image": "../../public/assets/Amanda_Ferreira.jpg",
+    "especializationName": "Psicanalise",
+    "especializationValue": 141.41
+  },
+  {
     "especializationId": "575536f0-014b-4080-a1ca-499e823b0ea2",
     "professionalName": "Osvaldo de Oliveira",
     "Image": "../../public/assets/Osvaldo_de_Oliveira.png",
     "especializationName": "Psicanalise",
     "especializationValue": 141.41
   }
+  
 ]
